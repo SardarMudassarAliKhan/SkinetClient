@@ -1,28 +1,22 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { IPagination } from 'src/models/pagination';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit  {
 
   title = 'Skinet';
-  products:any[];
-  constructor(private http:HttpClient)
+  constructor()
   {
 
   }
   ngOnInit(): void {
-    this.http.get("https://localhost:44331/api/Products/GetProducts?pageSize=50")
-    .subscribe((responce:IPagination)=>
-    {
-      this.products= responce.data
-    },error=>
-    {
-      console.log(error)
-    });
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+
   }
+
 }

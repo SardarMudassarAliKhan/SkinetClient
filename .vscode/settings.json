@@ -7,5 +7,6 @@
         "*.sln": true,
         "*.suo": true
     },
-    "files.autoGuessEncoding": true
+    "files.autoGuessEncoding": true,
+    "angular.enable-strict-mode-prompt": false
 }

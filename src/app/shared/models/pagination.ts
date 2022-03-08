@@ -6,6 +6,6 @@ export interface IPagination
   pageSize:number,
   brandId:number,
   typeId:number,
-  count:number
-  data:IProduct[]
+  count:number,
+  data:IProduct[],
 }
