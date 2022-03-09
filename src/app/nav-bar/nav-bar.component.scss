@@ -15,3 +15,26 @@
   left:15px;
   bottom: 15px;
 }
+nav
+{
+  border-bottom: 2px solid #343a40;
+  box-shadow:2px 2px 1px 1px #343a40;
+}
+a{
+  text-decoration: none;
+  color: #343a40;
+  &.active
+  {
+    color:orange
+  }
+}
+.logo
+{
+  cursor: pointer;
+  height: 60px;
+  width: 150px;
+  &:focus
+  {
+    outline: none;
+  }
+}

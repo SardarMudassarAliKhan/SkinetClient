@@ -1,19 +1,20 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-default bg-white">
   <div class="container-fluid">
-    <img src="/assets/images/logo.png">
+    <img src="/assets/images/logo.png" alt="logo" class="logo">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarColor01">
+    <div class="collapse navbar-collapse align-items-center" id="navbarColor01">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-uppercase">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link" [routerLink]="['/']"
+          routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Shop</a>
+          <a class="nav-link" routerLink="/shop" routerLinkActive="active">Shop</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
         </li>
       </ul>
       <div class="d-flex">
