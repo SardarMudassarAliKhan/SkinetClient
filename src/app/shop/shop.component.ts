@@ -4,6 +4,7 @@ import { IBrands } from './../shared/models/brands';
 import { ShopService } from './shop.service';
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../shared/models/product';
+import { first, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-shop',
@@ -33,7 +34,8 @@ export class ShopComponent implements OnInit {
   }
   getproductBrands()
   {
-    this.shopService.gerBrands().subscribe((responce:any)=>{
+    this.shopService.gerBrands().pipe(first()).subscribe(responce=>{
+      console.log(responce)
       this.Productbrands = responce;
     },
     error=>{
@@ -42,7 +44,8 @@ export class ShopComponent implements OnInit {
   }
   getproducysTypes()
   {
-    this.shopService.getProductTypes().subscribe((responce:any)=>{
+    this.shopService.getProductTypes().pipe(first()).subscribe(responce=>{
+      console.log(responce)
       this.producttypes = responce;
     },
     error=>{
