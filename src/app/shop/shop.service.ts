@@ -1,3 +1,4 @@
+import { IBasket } from './../shared/models/Basket';
 import { environment } from './../../environments/environment';
 import { ITypes } from './../shared/models/producttypes';
 import { IBrands } from './../shared/models/brands';
@@ -5,6 +6,7 @@ import { IPagination } from 'src/app/shared/models/pagination';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IProduct } from '../shared/models/product';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

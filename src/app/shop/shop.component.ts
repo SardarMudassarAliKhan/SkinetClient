@@ -34,7 +34,7 @@ export class ShopComponent implements OnInit {
   }
   getproductBrands()
   {
-    this.shopService.gerBrands().pipe(first()).subscribe(responce=>{
+    this.shopService.gerBrands().subscribe(responce=>{
       console.log(responce)
       this.Productbrands = responce;
     },

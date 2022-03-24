@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class TestErrorComponent implements OnInit {
 
   baseurl = environment.baseurl;
-  validationerror:any[];
+  validationerror:any;
   constructor(private https:HttpClient) { }
 
   ngOnInit(): void {
@@ -19,7 +19,7 @@ export class TestErrorComponent implements OnInit {
 
   get404Error()
   {
-    this.https.get(this.baseurl+"Products/GetProductById?id=42").subscribe(res=>{
+    this.https.get(this.baseurl+"Products/GetProductById/42").subscribe(res=>{
       console.log(res)
     },errors=>{
       console.log(errors)
@@ -35,11 +35,11 @@ export class TestErrorComponent implements OnInit {
   }
   get400ValidationError()
   {
-    this.https.get(this.baseurl+"Buggy/fortyTwo").subscribe((res:any[])=>{
+    this.https.get(this.baseurl+"Buggy/notfound/fortyTwo").subscribe((res:any[])=>{
       console.log(res)
-    },errors=>{
-      console.log(errors)
-      this.validationerror=errors;
+    },error=>{
+      console.log(error)
+      this.validationerror=error.errors;
     })
   }
   get500Error()

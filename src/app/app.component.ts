@@ -1,3 +1,4 @@
+import { BasketService } from './basket/basket.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,14 +11,22 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit  {
 
   title = 'Skinet';
-  constructor(private http:HttpClient)
+  constructor(private basketservice:BasketService)
   {
 
   }
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
+    const basketId = localStorage.getItem("Basket_Id");
+    if(basketId)
+    {
+      this.basketservice.getBasket(basketId).subscribe(()=>{
+        console.log("Initiated Basket");
+      },error=>{
+        console.log(error)
+      })
+    }
   }
+
 
 
 }
