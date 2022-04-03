@@ -20,14 +20,19 @@
       <div class="d-flex">
         <div class="class">
            <a routerLink="/basket" class="position-relative">
-              <div *ngIf="(basket$|async) as Basket"  class="cart-no">{{Basket.items.length}}</div>
+              <div *ngIf="(basket$ | async)"  class="cart-no">{{(basket$|async).items.length}}</div>
               <i class="fa fa-shopping-cart fa-3x mt-4 text-dark"></i>
            </a>
         </div>
         <div class="class">
-
-            <a class="btn btn-primary m-4">Sign Up</a>
-            <a class="btn btn-primary ml-4">Sign In</a>
+          <ng-container *ngIf="(curruntUser$ | async)===null">
+            <a routerLink="./account/register" class="btn btn-primary m-4">Sign Up</a>
+            <a routerLink="./account/login" class="btn btn-primary ml-4">Sign In</a>
+          </ng-container>
+          <ng-container *ngIf="curruntUser$ | async">
+            <a href="/shop">Welcome:{{(curruntUser$ | async).displayName}}</a>
+            <a (click)="logout()" class="btn btn-danger ml-4">Log Out</a>
+          </ng-container>
        </div>
       </div>
     </div>
